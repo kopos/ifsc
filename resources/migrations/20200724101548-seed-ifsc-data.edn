@@ -1,0 +1,3 @@
+{:ns ifsc.migrations.seed-ifsc-data
+ :up-fn migrate-up
+ :down-fn migrate-down}
