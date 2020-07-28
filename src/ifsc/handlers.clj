@@ -14,9 +14,10 @@
 (defapi fetch-ifsc-details
   "Get the branch details based on the IFSC code"
   [req]
-  (if-let [info (core/find-by-code (get-in req [:params :ifsc]))]
-    [true info]
-    (mk-error "IFSC_NOT_FOUND")))
+  (let [ifsc (get-in req [:params :ifsc])]
+    (if-let [info (core/find-by-code ifsc)]
+      [true (assoc info :bank-code (core/bank-code ifsc true))]
+      (mk-error "IFSC_NOT_FOUND"))))
 
 (defapi validate
   "Validate and return the basic details of the IFSC branch"
