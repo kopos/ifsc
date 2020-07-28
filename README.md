@@ -1,10 +1,17 @@
 # ifsc
 
-A Clojure library designed to ... well, that part is up to you.
+Based on the amazing [IFSC dataset][dataset] provided by [RazorPay][repo], this is a clojure micro-service providing only 3 API endpoints. The API end points closely mimic the Elixir server supplied in the [RazorPay Repo][repo]
 
 ## Usage
 
-FIXME
+* Compile with `lein uberjar`
+
+* Run with `PORT=<PORT> java -jar target/*-standalone.jar`
+
+* Make curl calls to
+  * `http://localhost:<PORT>/api/v1/ifsc/:code `
+  * `http://localhost:<PORT>/api/v1/ifsc/:code/validate`
+  * `http://localhost:<PORT>/api/v1/banks/:code`
 
 ## License
 
@@ -20,3 +27,6 @@ Public License, v. 2.0 are satisfied: GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or (at your
 option) any later version, with the GNU Classpath Exception which is available
 at https://www.gnu.org/software/classpath/license.html.
+
+[dataset]: https://github.com/razorpay/ifsc
+[repo]: https://github.com/razorpay/ifsc
