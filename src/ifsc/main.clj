@@ -1,7 +1,6 @@
 (ns ifsc.main
   (:require
     [clojure.tools.logging :as log]
-    [migratus.core :as migratus]
     [ring.logger :as logger]
     [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
     [ring.middleware.json :refer [wrap-json-body wrap-json-response]]

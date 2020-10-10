@@ -8,15 +8,15 @@
 
 (def spec {:classname   "org.h2.Driver"
            :subprotocol "h2"
-           :subname     "./ifsc.db"})
+           :subname     (:ifsc-db-path env)})
 
 (defn pool
   [spec]
   (let [cpds (doto (ComboPooledDataSource.)
-                (.setDriverClass (:classname spec))
-                (.setJdbcUrl (str "jdbc:" (:subprotocol spec) ":" (:subname spec)))
-                (.setMaxIdleTimeExcessConnections (* 30 60))
-                (.setMaxIdleTime (* 3 60 60)))]
+               (.setDriverClass (:classname spec))
+               (.setJdbcUrl (str "jdbc:" (:subprotocol spec) ":" (:subname spec)))
+               (.setMaxIdleTimeExcessConnections (* 30 60))
+               (.setMaxIdleTime (* 3 60 60)))]
     {:datasource cpds}))
 
 (def pooled-db (delay (pool spec)))

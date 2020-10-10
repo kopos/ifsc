@@ -1,4 +1,4 @@
-(defproject ifsc "0.2.1-SNAPSHOT"
+(defproject ifsc "0.2.2-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -35,6 +35,8 @@
 
    [pekaplay-base "0.3.9"]
    [http-kit "2.3.0"]]
+
+  :profiles {:dev {:env {:ifsc-db-path "./ifsc.db"}} }
 
   :plugins
   [[lein-environ "1.1.0"]
