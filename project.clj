@@ -49,4 +49,4 @@
    :migration-dir ~(or (System/getenv "MIGRATIONS_TABLE") "migrations")
    :db {:classname   "org.h2.Driver"
         :subprotocol "h2"
-        :subname     "./resources/ifsc.db"}})
+        :subname     "./ifsc.db"}})
